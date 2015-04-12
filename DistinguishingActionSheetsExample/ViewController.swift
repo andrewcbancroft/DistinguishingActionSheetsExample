@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIActionSheetDelegate {
 		let actionSheet1 = UIActionSheet()
 		actionSheet1.delegate = self
 		actionSheet1.title = "Choices"
-		actionSheet1.tag = ActionSheetTag.ActionSheet1.toRaw()
+		actionSheet1.tag = ActionSheetTag.ActionSheet1.rawValue
 		actionSheet1.addButtonWithTitle("Choice 1")
 		actionSheet1.addButtonWithTitle("Choice 2")
 		actionSheet1.addButtonWithTitle("Cancel")
@@ -25,7 +25,7 @@ class ViewController: UIViewController, UIActionSheetDelegate {
 		let actionSheet2 = UIActionSheet()
 		actionSheet2.delegate = self
 		actionSheet2.title = "Options"
-		actionSheet2.tag = ActionSheetTag.ActionSheet2.toRaw()
+		actionSheet2.tag = ActionSheetTag.ActionSheet2.rawValue
 		actionSheet2.addButtonWithTitle("Option 1")
 		actionSheet2.addButtonWithTitle("Option 2")
 		actionSheet2.addButtonWithTitle("Cancel")
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UIActionSheetDelegate {
 	}
 	
 	func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-		if let tag = ActionSheetTag.fromRaw(actionSheet.tag) {
+		if let tag = ActionSheetTag(rawValue: actionSheet.tag) {
 			switch tag {
 			case .ActionSheet1:
 				self.choiceLabel.text = "Button \(buttonIndex) of Action Sheet 1 was selected."
